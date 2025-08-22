@@ -8,11 +8,11 @@ import type { Guild } from 'discord.js'
  * Required intents: Guilds
  */
 export default (guild: Guild) => {
-	Analytics.event('server_join', {
-		data: {
-			name: guild.name,
-			type: 'event'
-		},
-		sessionId: guild.id
-	})
+  Analytics.event('server_join', {
+    data: {
+      name: guild.name,
+      type: 'event'
+    },
+    sessionId: guild.id
+  })
 }

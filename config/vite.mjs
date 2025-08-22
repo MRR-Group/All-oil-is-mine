@@ -5,8 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react(), DiscordProxy.Vite(), tailwindcss()],
-	server: {
-		allowedHosts: true
-	}
+  plugins: [react(), DiscordProxy.Vite(), tailwindcss()],
+  server: {
+    allowedHosts: true
+  }
 })

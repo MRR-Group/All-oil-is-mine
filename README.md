@@ -55,7 +55,7 @@ The React template makes it easy to authenticate your activity with Discord. The
 
 ```tsx
 <DiscordContextProvider authenticate scope={['identify', 'guilds']}>
-	<Activity />
+  <Activity />
 </DiscordContextProvider>
 ```
 
@@ -73,7 +73,7 @@ Everything Robo is file-based, so you can create new routes by making new files 
 
 ```js
 export default () => {
-	return { status: 'ok' }
+  return { status: 'ok' }
 }
 ```
 
