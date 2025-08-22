@@ -2,17 +2,14 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"lib": ["esnext", "DOM", "DOM.Iterable"],
-		"baseUrl": ".",
-		"paths": {
-			"~/*": ["src/*"]
-		},
 		"allowJs": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"esModuleInterop": true,
 		"module": "esnext",
-		"useDefineForClassFields": true,
+		"useDefineForClassFields": false,
 		"incremental": true,
+		"experimentalDecorators": true,
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
 		"resolveJsonModule": true,

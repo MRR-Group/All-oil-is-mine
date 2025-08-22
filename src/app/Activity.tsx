@@ -1,40 +1,16 @@
-import { useEffect, useState } from 'react'
-import { useDiscordSdk } from '../hooks/useDiscordSdk'
+import { usePlayers } from '../hooks/usePlayers'
+import { Player } from '../components/Player'
 
-/**
- * This is your Discord Activity's main component. Customize it as you like!
- *
- * Learn more:
- * https://robojs.dev/discord-activities
- */
 export const Activity = () => {
-	const { authenticated, discordSdk, status } = useDiscordSdk()
-	const [channelName, setChannelName] = useState<string>()
+    const players = usePlayers()
 
-	useEffect(() => {
-		// Requesting the channel in GDMs (when the guild ID is null) requires
-		// the dm_channels.read scope which requires Discord approval.
-		if (!authenticated || !discordSdk.channelId || !discordSdk.guildId) {
-			return
-		}
+    return (
+        <div className="voice__channel__container">
+            I am working!
 
-		// Collect channel info over RPC
-		// Enable authentication to see it! (App.tsx)
-		discordSdk.commands.getChannel({ channel_id: discordSdk.channelId }).then((channel) => {
-			if (channel.name) {
-				setChannelName(channel.name)
-			}
-		})
-	}, [authenticated, discordSdk])
-
-	return (
-		<div>
-			<img src="/rocket.png" className="logo" alt="Discord" />
-			<h1>Hello, World</h1>
-			{channelName ? <h3>#{channelName}</h3> : <h3>{status}</h3>}
-			<small>
-				Powered by <strong>Robo.js</strong>
-			</small>
-		</div>
-	)
+            {players.map((p) => (
+                <Player key={p.userId} {...p} />
+            ))}
+        </div>
+    )
 }
